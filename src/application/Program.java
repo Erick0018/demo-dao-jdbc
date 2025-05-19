@@ -6,10 +6,11 @@ import model.entities.Department;
 import model.entities.Seller;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Scanner;
 
 public class Program {
-    public static void main (String[] args) {
+    public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
         SellerDao sellerDao = DaoFactory.createSellerDao();
@@ -23,5 +24,20 @@ public class Program {
         sc.nextLine();
 
         System.out.println(seller);
+
+        System.out.println();
+
+        System.out.println("=== TEST 2: seller findByDepartment ===");
+
+        System.out.print("Enter id department: ");
+        int departmentId = sc.nextInt();
+
+        Department department = new Department(departmentId, null);
+
+        List<Seller> list = sellerDao.findByDepartment(department);
+
+        for (Seller obj : list) {
+            System.out.println(obj);
+        }
     }
 }
