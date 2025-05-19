@@ -21,7 +21,7 @@ public class Program {
         System.out.print("Enter id seller: ");
         int id = sc.nextInt();
 
-        Seller seller = sellerDao.findId(id);
+        Seller seller = sellerDao.findById(id);
         sc.nextLine();
 
         System.out.println(seller);
@@ -51,5 +51,11 @@ public class Program {
         Seller newSeller = new Seller(null, "Mark", "mark@gmail.com", new Date(), 4000.0, department);
         sellerDao.insert(newSeller);
         System.out.println("Inserted! New id = " + newSeller.getId());
+
+        System.out.println("\n=== TEST 5: seller update ===");
+        seller = sellerDao.findById(1);
+        seller.setName("Andrew Ford");
+        sellerDao.update(seller);
+        System.out.println("Update completed!");
     }
 }
