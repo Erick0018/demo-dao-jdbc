@@ -49,5 +49,9 @@ public class Program2 {
         departmentDao.deleteById(deleteId);
         System.out.println("Delete completed! Department deleted: " + deleteId + ", " + dep.getName());
 
+        sc.close();
+
+        // Implementation finished
+
     }
 }
