@@ -4,7 +4,6 @@ import model.dao.DaoFactory;
 import model.dao.DepartmentDao;
 import model.entities.Department;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -24,6 +23,13 @@ public class Program2 {
         for (Department obj : list) {
             System.out.println(obj);
         }
+
+        System.out.println("\n=== TEST 3: department insert ===");
+        System.out.print("Insert a department: ");
+        String name = sc.nextLine();
+        Department newDepartment = new Department(null, name);
+        departmentDao.insert(newDepartment);
+        System.out.println("Inserted! New Department: " + newDepartment.getId() + ", " + newDepartment.getName());
 
     }
 }
